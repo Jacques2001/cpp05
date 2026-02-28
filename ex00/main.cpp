@@ -1,6 +1,7 @@
 #include "Bureaucrat.hpp"
 
-int main()
+int main() 
 {
+    Bureaucrat test("Jacques", 0);
     return 0;
 }

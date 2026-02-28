@@ -9,7 +9,7 @@ CYAN	= \033[0;36m
 RESET	= \033[0m
 
 SRCS        = 	main.cpp \
-				Bureaucrat.cpp \ 
+				Bureaucrat.cpp
 
 OBJS        = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 
