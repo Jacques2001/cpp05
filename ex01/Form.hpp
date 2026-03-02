@@ -10,8 +10,8 @@ class Form
     private :
         const std::string _name;
         bool _signed;
-        const int _gradeSign; // Grade required to sign the Form
-        const int _gradeExecute; // Grade
+        const int _gradeSign;
+        const int _gradeExecute;
     public :
         Form();
         Form(std::string name, int grade_sign, int grade_execute);
@@ -19,7 +19,10 @@ class Form
         Form &operator=(const Form &other);
         ~Form();
         int getGradeSign();
-        void beSigned(Bureaucrat &salaryman);
+        int getGradeExecute();
+        std::string getFormName();
+        int beSigned(Bureaucrat& employee);
+        bool getStatus();
         class GradeTooHighException : public std::exception
         {
             public :
