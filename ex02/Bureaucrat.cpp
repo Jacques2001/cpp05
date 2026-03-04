@@ -51,7 +51,7 @@ std::string Bureaucrat::getName()
     return _name;
 }
 
-int Bureaucrat::getGrade()
+int Bureaucrat::getGrade() const
 {
     return _grade;
 }
@@ -90,18 +90,25 @@ std::ostream &operator<<(std::ostream &out, Bureaucrat &info)
     return (out);
 }
 
-void Bureaucrat::signForm(Form &f)
+void Bureaucrat::signAForm(AForm *f)
 {
-    if (f.getStatus() != 1 && f.beSigned(*this) == 1)
-        std::cout << getName() << " signed " << f.getFormName() << std::endl;
+    if (f->getStatus() != 1 && f->beSigned(*this) == 1)
+        std::cout << getName() << " signed " << f->getAFormName() << std::endl;
     else
     {
-        std::cout << getName() << " couldn't sign " << f.getFormName()
+        std::cout << getName() << " couldn't sign " << f->getAFormName()
                   << " because ";
-        if (f.getStatus() == 1)
+        if (f->getStatus() == 1)
             std::cout << "it has already been signed" << std::endl;
         else
             std::cout << "grade is too low" << std::endl;
     }
+}
 
+void Bureaucrat::executeForm(AForm const &form)
+{
+    if (form.execute(*this) == 1)
+        std::cout << "Could not execute the form" << std::endl;
+    else
+        std::cout << this->getName() << " executed " << form.getAFormName() << std::endl;
 }
