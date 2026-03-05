@@ -26,6 +26,21 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
+void print_tree(std::ofstream *file)
+{
+    std::string tree =
+"       _-_\n"
+"    /~~   ~~\\\n"
+" /~~         ~~\\\n"
+"{               }\n"
+" \\  _-     -_  /\n"
+"   ~  \\\\ //  ~\n"
+"_- -   | | _- _\n"
+"  _ -  | |   -_\n"
+"      // \\\n";
+    *file << tree << std::endl;
+}
+
 int ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
     std::string filename(_target + "_shrubbery");
@@ -36,9 +51,8 @@ int ShrubberyCreationForm::execute(Bureaucrat const &executor) const
         if (executor.getGrade() > this->getGradeExecute())
             throw(AForm::GradeTooLowException());
         std::ofstream file(filename.c_str());
-        file << "test" << std::endl;
+        print_tree(&file);
         return 0;
-        // a completer
     }
     catch (std::exception &e)
     {

@@ -30,12 +30,18 @@ int RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
     try
     {
+        time_t current_time = time(NULL);
+        srand((unsigned) time(NULL));
+        (void)current_time;
         if (this->getStatus() == 0)
             throw(AForm::NotSignedException());
         if (executor.getGrade() > this->getGradeExecute())
             throw(AForm::GradeTooLowException());
         std::cout << "* BZZZZZZZ BZZZZZZZZ BZZZZZZZZZZ *" << std::endl;
-        // creer proba
+        if ((rand() % 2) != 0)
+            std::cout << "Robotomy failed" << std::endl;
+        else
+            std::cout << _target << " has been robotomized" << std::endl;
         return 0;
     }
     catch(const std::exception& e)
