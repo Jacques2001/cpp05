@@ -5,11 +5,11 @@
 
 int main() 
 {
-    AForm *trivial = new ShrubberyCreationForm("x");
+    AForm *trivial = new ShrubberyCreationForm("home");
     AForm *useful = new RobotomyRequestForm("z");
     AForm *important = new PresidentialPardonForm("I");
-    Bureaucrat x("Jacques", 1);
-    Bureaucrat z("Nobody", 72);
+    Bureaucrat x("Jacques", 5);
+    Bureaucrat z("Nobody", 150);
     
     z.signAForm(useful);
     z.signAForm(trivial);
