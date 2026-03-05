@@ -92,6 +92,11 @@ std::ostream &operator<<(std::ostream &out, Bureaucrat &info)
 
 void Bureaucrat::signAForm(AForm *f)
 {
+    if (!f)
+    {   
+        std::cout << "Form is NULL" << std::endl;
+        return ;
+    }
     if (f->getStatus() != 1 && f->beSigned(*this) == 1)
         std::cout << getName() << " signed " << f->getAFormName() << std::endl;
     else
