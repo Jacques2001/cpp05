@@ -10,10 +10,13 @@ int main()
     AForm *important = new PresidentialPardonForm("I");
     Bureaucrat x("Jacques", 5);
     Bureaucrat z("Nobody", 150);
+    Bureaucrat y("Signer", 20);
     
     z.signAForm(useful);
     z.signAForm(trivial);
     x.signAForm(important);
+    y.signAForm(trivial);
+    y.signAForm(important);
     x.executeForm(*trivial);
     x.executeForm(*useful);
     x.executeForm(*important);
